@@ -14,7 +14,7 @@ const TanstackTodo = () => {
   const queryClient = useQueryClient();
 
   const addTodo = async (todo) => {
-    const res = await fetch('https://tanstack-todo.onrender.com/create', {
+    const res = await fetch('https://tanstack-todo.onrender.com/todos/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
