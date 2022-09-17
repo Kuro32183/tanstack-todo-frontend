@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 
 const fetchTodoList = async () => {
-  const res = await fetch('http://localhost:3001/todos');
+  const res = await fetch('https://tanstack-todo.onrender.com/todos');
   if (!res.ok) {
     throw new Error(`${res.status} ${res.statusText}`);
   }
@@ -14,7 +14,7 @@ const TanstackTodo = () => {
   const queryClient = useQueryClient();
 
   const addTodo = async (todo) => {
-    const res = await fetch('http://localhost:3001/todos/create', {
+    const res = await fetch('https://tanstack-todo.onrender.com/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ const TanstackTodo = () => {
   };
 
   const deleteTodo = async (id) => {
-    const res = await fetch(`http://localhost:3001/todos/${id}`, {
+    const res = await fetch(`https://tanstack-todo.onrender.com/todos/${id}`, {
       method: 'DELETE',
     });
     if (!res.ok) {
@@ -39,7 +39,7 @@ const TanstackTodo = () => {
   };
 
   const updateTodo = async (todo) => {
-    const res = await fetch(`http://localhost:3001/todos/${todo.id}`, {
+    const res = await fetch(`https://tanstack-todo.onrender.com/todos/${todo.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
